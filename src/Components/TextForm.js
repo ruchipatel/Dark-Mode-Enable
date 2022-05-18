@@ -6,40 +6,72 @@ export default function TextForm(props) {
       const handleUpCase = () => {
         let newText = text.toUpperCase();
         setText(newText);
-        props.showAlert("Converted To Uppercase","Success");
+        if(text.length > 0){
+          props.showAlert("Converted To Uppercase","Success");
+        }
+        else
+        {
+          props.showAlert("Please enter text in below textarea","Danger");
+        }
+        
       }
    
       const handleLowercase = () => {
        let newText1 = text.toLowerCase();
        setText(newText1);
-       props.showAlert("Converted To Lowercase","Success");
+       if(text.length > 0){
+        props.showAlert("Converted To Lowercase","Success");
+      }
+      else
+      {
+        props.showAlert("Please enter text in below textarea","Danger");
+      }
       }
 
 
       const handleReverseText = () => {
         let newText1 = text.split("").reverse().join("");
         setText(newText1);
-        props.showAlert("Text is reversed","Success");
+        if(text.length > 0){
+          props.showAlert("Text Reversed","Success");
+        }
+        else
+        {
+          props.showAlert("Please enter text in below textarea","Danger");
+        }
       }
 
 
       const handledownloadText = () =>
       {
-        const element = document.createElement("a");
-        const file = new Blob([text], {
-          type: "text/plain"
-        });
-        element.href = URL.createObjectURL(file);
-        element.download = "myFile.txt";
-        document.body.appendChild(element);
-        element.click();
-        props.showAlert("File Downloaded","Success");
+      
+        if(text.length > 0){
+          props.showAlert("File Downloaded","Success");
+          const element = document.createElement("a");
+          const file = new Blob([text], {
+            type: "text/plain"
+          });
+          element.href = URL.createObjectURL(file);
+          element.download = "myFile.txt";
+          document.body.appendChild(element);
+          element.click();
+        }
+        else
+        {
+          props.showAlert("Please enter text in below textarea","Danger");
+        }
       }
 
       const handleClearText = () => {
         let newText1 = "";
         setText(newText1);
-        props.showAlert("Clear Text","Success");
+        if(text.length > 0){
+          props.showAlert("Text is cleared","Success");
+        }
+        else
+        {
+          props.showAlert("Please enter text in below textarea","Danger");
+        }
       }
 
       const handleChange= (event) => {
