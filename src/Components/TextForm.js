@@ -102,7 +102,7 @@ export default function TextForm(props) {
              </div>
              <div className="summery">
                  <h4>Your text summery</h4>
-                 <p><strong>{text.split(" ").length}</strong> words and <strong>{text.length}</strong> characters</p>
+                 <p><strong>{text.length>0?text.split(" ").length:0}</strong> words and <strong>{text.length}</strong> characters</p>
                  <p>You can read it in <strong>{text.split(" ").length * 0.008}</strong> Minutes</p>
 
                  <h5>Preview</h5>
