@@ -5,18 +5,21 @@ export default function TextForm(props) {
 
       const handleUpCase = () => {
         let newText = text.toUpperCase();
-        setText(newText)
+        setText(newText);
+        props.showAlert("Converted To Uppercase","Success");
       }
    
       const handleLowercase = () => {
        let newText1 = text.toLowerCase();
-       setText(newText1)
+       setText(newText1);
+       props.showAlert("Converted To Lowercase","Success");
       }
 
 
       const handleReverseText = () => {
         let newText1 = text.split("").reverse().join("");
-        setText(newText1)
+        setText(newText1);
+        props.showAlert("Text is reversed","Success");
       }
 
 
@@ -30,11 +33,13 @@ export default function TextForm(props) {
         element.download = "myFile.txt";
         document.body.appendChild(element);
         element.click();
+        props.showAlert("File Downloaded","Success");
       }
 
       const handleClearText = () => {
         let newText1 = "";
-        setText(newText1)
+        setText(newText1);
+        props.showAlert("Clear Text","Success");
       }
 
       const handleChange= (event) => {
