@@ -52,13 +52,13 @@ export default function TextForm(props) {
 
   return (
     <div>
-        <div className="container">
+        <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
             <div className="py-3">
                <h1>{props.heading} </h1>
                 <textarea className="form-control" id="exampleFormControlTextarea1"  rows="8" value={text}  onChange={handleChange} ></textarea>
                 <button type="submit" className="btn btn-primary mt-3 " onClick={handleUpCase}>Convert to Uppercase</button>
                 <button type="submit" className="btn btn-primary mt-3 mx-3" onClick={handleLowercase}>Convert to Lowercase</button>
-                <button type="submit" className="btn btn-primary mt-3 ml-3" onClick={handleReverseText}>Reverce</button>
+                <button type="submit" className="btn btn-primary mt-3 ml-3" onClick={handleReverseText}>Reverse</button>
                 <button type="submit" className="btn btn-primary mt-3 mx-3" onClick={handleClearText}>Clear</button>
                 <button type="submit" className="btn btn-primary mt-3 ml-3" onClick={handledownloadText}>Download</button>
 
@@ -69,7 +69,7 @@ export default function TextForm(props) {
                  <p>You can read it in <strong>{text.split(" ").length * 0.008}</strong> Minutes</p>
 
                  <h5>Preview</h5>
-                 <p>{text}</p>
+                 <p>{text.length>0?text:'Enter text in above textbox for preview'}</p>
              </div>
 
         </div>
