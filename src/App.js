@@ -1,10 +1,15 @@
 import './App.css';
-//import About from './Components/About';
+import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import React,{useState} from 'react'
 import Alert from './Components/Alert';
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -20,7 +25,7 @@ function App() {
      })
 
      setTimeout(() => {
-       setAlert(null)
+      setAlert(null)
      }, 2000);
   }
 
@@ -43,11 +48,19 @@ function App() {
 
   return (
     <>
+   <BrowserRouter>
     <Navbar title="TextUtils" homemenu="Home" aboutmenu="About" mode={mode} toggleMode={toggleMode}></Navbar>
     <Alert alert={alert}/>
-    <TextForm heading="Enter text to convert case" mode={mode} showAlert={showAlert}></TextForm>
+  
     {/* <Navbar/>*/}
      {/*<About/>*/}
+     <Routes>
+            <Route path="/about" element={<About  mode={mode}/>} >
+            </Route>
+            <Route path="/" element={<TextForm heading="Enter text to analyze"  mode={mode} showAlert={showAlert} />}>
+            </Route>
+          </Routes>
+     </BrowserRouter>
     </>
   )
 }
