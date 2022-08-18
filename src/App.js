@@ -51,7 +51,7 @@ function App() {
    <BrowserRouter>
     <Navbar title="TextUtils" homemenu="Home" aboutmenu="About" mode={mode} toggleMode={toggleMode}></Navbar>
     <Alert alert={alert}/>
-  
+    {/**/}
     {/* <Navbar/>*/}
      {/*<About/>*/}
      <Routes>
